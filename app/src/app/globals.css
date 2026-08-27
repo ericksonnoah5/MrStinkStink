@@ -52,7 +52,6 @@
   }
 
   body {
-    background-color: oklch(var(--background));
     color: oklch(var(--foreground));
   }
 
