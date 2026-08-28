@@ -17,8 +17,8 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Core",
-  description: "This is my personal website stay away.",
+  title: "Doggy dash",
+  description: "Doggy dashboard for a stinky guy",
   manifest: "/manifest.json",
   icons: {
     icon: "/favicon.png",
