@@ -243,7 +243,7 @@ export default function DashboardV2Page() {
             <AlarmClock className="h-10 w-10" />
             {formatElapsed(nextpoop)}
             <div
-              className={`h-5 w-5 rounded-3xl border ${
+              className={`h-7 w-7 rounded-3xl border-4 border-gray-800 ${
                 poocolor === 0
                   ? "bg-green-500"
                   : poocolor === 1
@@ -274,7 +274,7 @@ export default function DashboardV2Page() {
             <AlarmClock className="h-10 w-10" />
             {formatElapsed(nextpee)}
             <div
-              className={`h-5 w-5 rounded-3xl border ${
+              className={`h-7 w-7 rounded-3xl border-4 border-gray-800 ${
                 peecolor === 0
                   ? "bg-green-500"
                   : peecolor === 1
