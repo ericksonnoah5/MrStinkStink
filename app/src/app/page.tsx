@@ -198,13 +198,13 @@ export default function DashboardV2Page() {
       >
         <source src="/atlas.mp4" type="video/mp4" />
       </video>
-      <div className="relative z-10 h-full rounded-3xl bg-black/60 font-sans tracking-wide backdrop-blur-md">
-        <div className="h-full rounded-2xl bg-black/60 p-4">
-          <h1 className="flex h-full items-center justify-center text-wrap p-10 text-center text-5xl">
-            <Dog className="!h-12 !w-12" /> Doggy potty dash
+      <div className="relative z-10 m-2 h-full rounded-3xl bg-black/60 p-4 font-sans tracking-wide backdrop-blur-md">
+        <div className="mx-auto my-auto rounded-3xl border-4 border-gray-800 bg-gray-950 md:w-1/2">
+          <h1 className="flex h-full items-center justify-center text-wrap p-14 text-center text-5xl">
+            <Dog className="!h-14 !w-14" /> Doggy potty dash
           </h1>
         </div>
-        <div className="grid h-full w-full grid-cols-1 sm:grid-cols-4">
+        <div className="grid h-full w-full grid-cols-1 gap-1 sm:grid-cols-4 md:gap-3">
           <h1 className="m-2 hidden h-full items-center justify-center p-5 text-3xl sm:block sm:text-center">
             Poos {poopnumber}
           </h1>
@@ -249,7 +249,7 @@ export default function DashboardV2Page() {
             Accidents: {accidents}
           </h1>
           <Button
-            className="m-2 flex h-full items-center justify-center p-5 text-3xl"
+            className="m-2 flex h-full items-center justify-center p-5 text-3xl md:h-1/2"
             onClick={setaccidentdata}
           >
             <OctagonX className="!h-10 !w-10" />
