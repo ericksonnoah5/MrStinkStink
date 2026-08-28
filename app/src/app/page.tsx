@@ -198,13 +198,13 @@ export default function DashboardV2Page() {
       >
         <source src="/atlas.mp4" type="video/mp4" />
       </video>
-      <div className="relative z-10 m-2 h-full rounded-3xl bg-black/60 p-4 font-sans tracking-wide backdrop-blur-md">
+      <div className="relative z-10 m-1 h-full rounded-3xl bg-black/60 p-4 font-sans tracking-wide backdrop-blur-md">
         <div className="mx-auto my-auto rounded-3xl border-4 border-gray-800 bg-gray-950 md:w-1/2">
-          <h1 className="flex h-full items-center justify-center text-wrap p-14 text-center text-5xl">
-            <Dog className="!h-14 !w-14" /> Doggy potty dash
+          <h1 className="flex h-full items-center justify-center text-wrap p-14 text-center text-3xl md:text-5xl">
+            <Dog className="!h-10 !w-10 md:!h-14 md:!w-14" /> Doggy potty dash
           </h1>
         </div>
-        <div className="grid h-full w-full grid-cols-1 gap-1 sm:grid-cols-4 md:gap-3">
+        <div className="grid h-full w-full grid-cols-1 sm:grid-cols-4 md:gap-3">
           <h1 className="m-2 hidden h-full items-center justify-center p-5 text-3xl sm:block sm:text-center">
             Poos {poopnumber}
           </h1>
