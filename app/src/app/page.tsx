@@ -22,6 +22,8 @@ export default function DashboardV2Page() {
   const [peecolor, setpeecolor] = useState(0);
   const [poocolor, setpoocolor] = useState(0);
 
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   const currenttimeRef = useRef<Date | undefined>(undefined);
   const lastpoopRef = useRef<Date | undefined>(undefined);
   const lastpeeRef = useRef<Date | undefined>(undefined);
@@ -123,6 +125,28 @@ export default function DashboardV2Page() {
     return () => clearInterval(gettime);
   }, [start]);
 
+  useEffect(() => {
+    function playvideo() {
+      const video = videoRef.current;
+      if (video == null) return;
+
+      video.muted = true;
+      video.play().catch(() => {});
+    }
+
+    playvideo();
+
+    document.addEventListener("visibilitychange", playvideo);
+    document.addEventListener("touchstart", playvideo, { once: true });
+    document.addEventListener("click", playvideo, { once: true });
+
+    return () => {
+      document.removeEventListener("visibilitychange", playvideo);
+      document.removeEventListener("touchstart", playvideo);
+      document.removeEventListener("click", playvideo);
+    };
+  }, []);
+
   function lastpoopt() {
     if (lastpoopRef.current != null && currenttimeRef.current != null) {
       const npoop =
@@ -212,6 +236,7 @@ export default function DashboardV2Page() {
   return (
     <div className="font-bold text-white">
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
