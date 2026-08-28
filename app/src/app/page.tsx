@@ -19,6 +19,9 @@ export default function DashboardV2Page() {
   const [nextpoop, setnextpoop] = useState(0);
   const [nextpee, setnextpee] = useState(0);
 
+  const [peecolor, setpeecolor] = useState(0);
+  const [poocolor, setpoocolor] = useState(0);
+
   const currenttimeRef = useRef<Date | undefined>(undefined);
   const lastpoopRef = useRef<Date | undefined>(undefined);
   const lastpeeRef = useRef<Date | undefined>(undefined);
@@ -125,6 +128,15 @@ export default function DashboardV2Page() {
       const npoop =
         currenttimeRef.current.getTime() - lastpoopRef.current.getTime();
       setnextpoop(npoop);
+
+      const hours = Math.floor(npoop / 1000 / 3600);
+      if (hours >= 8) {
+        setpoocolor(2);
+      } else if (hours >= 6) {
+        setpoocolor(1);
+      } else {
+        setpoocolor(0);
+      }
     }
   }
   function lastpeep() {
@@ -132,6 +144,15 @@ export default function DashboardV2Page() {
       const npee =
         currenttimeRef.current.getTime() - lastpeeRef.current.getTime();
       setnextpee(npee);
+
+      const hours = Math.floor(npee / 1000 / 3600);
+      if (hours >= 3) {
+        setpeecolor(2);
+      } else if (hours >= 2) {
+        setpeecolor(1);
+      } else {
+        setpeecolor(0);
+      }
     }
   }
 
@@ -141,6 +162,7 @@ export default function DashboardV2Page() {
     const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
     const seconds = totalSeconds % 60;
+
     if (hours > 0) return `${hours}h ${minutes}m`;
     if (minutes > 0) return `${minutes}m ${seconds}s`;
     return `${seconds}s`;
@@ -220,6 +242,17 @@ export default function DashboardV2Page() {
           <h1 className="m-2 flex h-full items-center justify-center gap-3 p-5 text-center text-3xl">
             <AlarmClock className="h-10 w-10" />
             {formatElapsed(nextpoop)}
+            <div
+              className={`h-5 w-5 rounded-3xl border ${
+                poocolor === 0
+                  ? "bg-green-500"
+                  : poocolor === 1
+                    ? "bg-yellow-500"
+                    : poocolor === 2
+                      ? "bg-red-500"
+                      : "bg-green-500"
+              }`}
+            ></div>
           </h1>
           <div className="block text-center sm:hidden">
             ________________________________________
@@ -240,6 +273,17 @@ export default function DashboardV2Page() {
           <h1 className="m-2 flex h-full items-center justify-center gap-3 p-5 text-center text-3xl">
             <AlarmClock className="h-10 w-10" />
             {formatElapsed(nextpee)}
+            <div
+              className={`h-5 w-5 rounded-3xl border ${
+                peecolor === 0
+                  ? "bg-green-500"
+                  : peecolor === 1
+                    ? "bg-yellow-500"
+                    : peecolor === 2
+                      ? "bg-red-500"
+                      : "bg-green-500"
+              }`}
+            ></div>
           </h1>
           <div className="block text-center sm:hidden">
             _______________________________________
